@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G R E C O</title>
+    <link rel="stylesheet" href="css/PadraoEstilo.css">
+    <link rel="stylesheet" href="css/cadastrar.css">
+    <link rel="stylesheet" href="js/funcoes.js">
+</head>
+
+<body>
+
+    <header>
+        <div class="div_header superior">
+            <ul class="ul_header superior">
+                <li class="li_header imagem superior"> <img class="imagem_header_superior" src="imgs/medusa_png.png"
+                        alt=""></li>
+
+                <li class="li_header olimpo superior"> G R E C O </li>
+
+                <li class="li_header entrada superior"> <a class="a_entrada superior" href="index.html">Home</a>|<a
+                        class="a_entrada superior" href="cadastrar.html"> Quiz </a> |<a a class="a_entrada superior"
+                        href="Mais_obras.html"> Mais Obras </a> </li>
+
+
+            </ul>
+        </div>
+        <div class="div_header inferior">
+            <ul class="ul_header inferior">
+                <li class="li_header inferior"><a class="a_entrada inferior" href="index.html">Home</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="usuario.html">Quiz</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="Mais_obras.html">Mais Obras</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="cadastrar.html">Sua conta</a></li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <div class="container">
+
+            <div class="caixa AbaAuxiliar_Cadastrar">
+                <div class="conteudo_cadastrar">
+                    <h2 class="CADASTRAR">CADASTRAR</h2>
+                    <ul class="lista lista_cadastrar entrar">
+                        <li class="atributo_cadastrar entrar"> <label class="label_cadastrar nome"
+                                for="nome_input">Nome</label>
+                            <input class="input_cadastrar " type="text" placeholder="Seu Nome Aqui" id="nome_input">
+                        </li>
+                        <li class="atributo_cadastrar entrar"> <label class="label_cadastrar email"
+                                for="email_input">Email</label>
+                            <input class="input_cadastrar" type="text" placeholder="fulano@gmail.com" id="email_input">
+                        </li>
+                        <li class="atributo_cadastrar senha"><label class="label_cadastrar senha"
+                                for="senha_input">Senha</label>
+                            <input class="input_cadastrar" type="password" placeholder="*****" id="senha_input"> <input
+                                class="input_revelar_senha" type="checkbox" onclick="revelarSenha()">
+                        </li>
+                        <li class="atributo_cadastrar senha"><label class="label_cadastrar confirmar_senha"
+                                for="confirmacao_senha_input">Confirmar Senha</label>
+                            <input class="input_cadastrar" type="password" placeholder="*****"
+                                id="confirmacao_senha_input"> <input class="input_revelar_senha" type="checkbox"
+                                onclick="revelarConfirmarSenha()" id="input_revelar_senha">
+                        </li>
+                       
+
+                        <button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
+
+
+                        <div class="cardErro" id="cardErro"></div>
+                        <div id="mensagem_erro" class="mensagem_erro"></div>
+                    </ul>
+                    <div id="alerta"></div>
+                    <div id="regra_senha"></div>
+                </div>
+                <div class="imagem_medusa">
+                    <h2 class="Cadastre_se"><a class="Cadastre_se_link" href="Cadastro.html">Cadastre-Se</a></h2>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="caixa entrar_principal">
+                <div class="conteudo_entrar">
+                    <h2 class="ENTRAR"> ENTRAR</h2>
+                    <ul class="lista lista_entrar entrar">
+                        <li class="atributo entrar"> <label class="label_nome" for="inputEmail">Nome ou email do
+                                usuario</label>
+                            <input class="input_login" type="text" placeholder="nome/*****@gmail.com"
+                                id="InputEmail_entrar">
+                        </li>
+                        <li class="atributo entrar"><label class="label_senha" for="InputSenha">Senha</label>
+                            <input class="input_login" type="password" placeholder="*****" id="InputSenha_entrar">
+                        </li>
+                        <button class="Botao botao_entrar" onclick="entrar()">Entrar</button>
+
+                        <div class="cardErro" id="cardErro_entrar"></div>
+                        <div id="mensagem_erro_entrar" class="mensagem_erro_entrar"></div>
+                    </ul>
+                </div>
+                <div class="imagem_davi">
+                    <h2 class="Login"><a class="Login_link" href="cadastrar.html">LOGIN</a></h2>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </main>
+
+
+
+
+    <footer>
+      
+        <ul class="lista_footer left"> 
+        <li class="atributo_footer"><img class="imagem_footer" src="assets/imgs/anjinho_sentado.png" alt=""></li>
+        
+        </ul>
+                <ul class="lista_footer center">
+                    <li class="Filipe_footer"> FILIPE RICARDO DA SILVA </li>
+                    <li class="atributo_footer">© 1998 - 2022 História das Artes. Todos os direitos reservados.</li>
+        
+                </ul>
+        
+                <ul class="lista_footer right">
+                    <li class="atributo_footer"> G R E C O </li>
+                    <li class="atributo_footer">www.gregoarte@gmail.com</li>
+                </ul>
+            </footer>
+
+</body>
+
+</html>
+
+<script>
+    function revelarSenha() {
+
+        if (InputSenha_cadastrar.type == 'text') {
+            InputSenha_cadastrar.type = 'password'
+        } else {
+            InputSenha_cadastrar.type = 'text'
+        }
+
+    }
+
+    function revelarConfirmarSenha() {
+        if (InputConfirmarSenha.type == 'text') {
+            InputConfirmarSenha.type = 'password'
+        } else {
+            InputConfirmarSenha.type = 'text'
+        }
+
+    }
+
+
+
+    // CADASTRO JS 
+    function cadastrar() {
+
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        var senha = senha_input.value;
+        var conf_senha = confirmacao_senha_input.value;
+
+        //FRASE DE ALERTA
+        var frase_alerta = "Não foi possível realizar o cadastro!<br> A senha deve ter 8 digitos!"
+        var frase_senha = "Cuidado, senha fraca!"
+
+        //VALIDAÇÕES PARA A ENTRADA
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha os campos em branco";
+
+
+            return false;
+
+        } 
+        else if (senha.length != 8) {
+            alerta.innerHTML = `
+             <p style="color: red;">
+             ${frase_alerta}
+             </p>
+         `
+         mensagem_erro.innerHTML = "";
+
+            return false;
+        } else if (senha != conf_senha) {
+            alerta.innerHTML = `
+             <p style="color: red;">
+             As senhas devem ser iguais!
+             </p>
+            `;
+            mensagem_erro.innerHTML = "";
+            return false;
+        }
+        else if (senha == 12345678) {
+            alerta.innerHTML = `   <p style="color: red;">
+             ${frase_senha}
+             </p>`;
+             mensagem_erro.innerHTML = "";
+            return false;
+        }
+
+        else if (senha.length < 8) {
+            var letraMaiuscula = senha.match(/[A-Z]/);
+            var letraMinuscula = senha.match(/[a-z]/);
+            var numeros = senha.match(/[0-9]/);
+            mensagem_erro.innerHTML = "";
+            if (!letraMaiuscula || !letraMinuscula || !numeros) {
+                regra_senha.innerHTML = "";
+                alerta.innerHTML = `
+                <p style="color: red;">
+                    A senha deve conter letra minúscula,
+                    letra maiuscula e um numero.
+                </p>`;
+                mensagem_erro.innerHTML = "";
+                return false;
+            }
+        } else {
+            setInterval(sumirMensagem, 5000)
+            mensagem_erro.value = "";
+        }
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                confirmacaoSenhaServer: confirmacaoSenhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "cadastrar.html";
+                }, "1000")
+
+                limparFormulario();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return true;
+    }
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
+
+<script>
+    function entrar() {
+        //aguardar();
+
+        var emailVar = InputEmail_entrar.value;
+        var senhaVar = InputSenha_entrar.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro_entrar.style.display = "block"
+            mensagem_erro_entrar.innerHTML = "Preencha todos os campos";
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 2000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location = "./usuario.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Houve um erro ao tentar realizar o login";
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

@@ -1,0 +1,429 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 130vh;
+    margin-top: -6vh;
+    margin-bottom: -6vh;
+
+
+}
+
+header{
+
+}
+
+footer{
+   height: 28vh;
+}
+
+/* ESTRUTURA */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 26px;
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.5);
+    animation: russa 2s infinite ease-in-out;
+   box-shadow: 0px -10px   30px rgb(212, 175, 55) ;
+
+
+
+}
+
+
+@keyframes russa{
+25%{box-shadow: 10px 0px    30px rgb(212, 175, 55) }
+50%{box-shadow: 0px   10px  30px rgb(212, 175, 55)}
+75%{box-shadow: -10px 0px   30px rgb(212, 175, 55)}
+100%{box-shadow: 0px -10px  30px rgb(212, 175, 55) }
+
+
+}
+
+/* CAIXAS PRINCIPAIS */
+.AbaAuxiliar_Cadastrar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-bottom-left-radius: 5%;
+    border-top-left-radius: 5%;
+
+
+}
+
+.entrar_principal {
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 5%;
+    border-top-right-radius: 5%;
+     background-color:rgb(0, 0, 0, 0.7);
+
+
+}
+
+.caixa {
+
+    height: 80vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 2px black;
+
+
+}
+
+
+/*CONTEUDO CADASTRAR E TELA DE DESCANSO*/
+
+.conteudo_cadastrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 0;
+    width: 100%;
+    font-size: 0px;
+    transition: 0.4s;
+}
+
+.CADASTRAR {
+    font-size: 0;
+    color: white;
+
+}
+
+.lista_cadastrar {
+
+    margin-bottom: -26vh;
+
+}
+
+.atributo_cadastrar {
+
+    width: 20;
+}
+
+.label_cadastrar {
+    color: white;
+    font-size: 0px;
+    transition: 0.1s;
+
+
+}
+
+.input_cadastrar {
+    width: 0vw;
+    transition: 0.1s;
+
+
+}
+
+.botao_cadastrar {
+    width: 0;
+    font-size: 0px;
+
+}
+
+
+
+.imagem_medusa {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/imgs/medusa_png.png );
+    background-size: cover;
+    border-radius: 10%;
+    width: 32vw;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.Cadastre_se {
+    position: absolute;
+    margin-left: 3vw;
+    margin-top: 70vh;
+    width: 10vw;
+    transition: 0.1s;
+    
+
+}
+
+.Cadastre_se_link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 4px 4px rgb(0, 0, 0);
+
+    width: 14%;
+}
+
+/* EFEITO DE TRANSIÇAO CADASTRO */
+
+
+.AbaAuxiliar_Cadastrar:hover {
+    background-color: rgb(0, 0, 0, 0.7);
+}
+
+.AbaAuxiliar_Cadastrar:hover .conteudo_cadastrar {
+    height: 73vh;
+    font-size: 20px;
+    transition: 0.5s;
+    margin-top: 0;
+}
+
+.AbaAuxiliar_Cadastrar:hover .imagem_medusa {
+
+    height: 0vw;
+    transition: 0.5s;
+
+}
+
+.AbaAuxiliar_Cadastrar:hover .Cadastre_se {
+    transition: 0s;
+    font-size: 0;
+}
+
+.AbaAuxiliar_Cadastrar:hover .input_cadastrar {
+    width: 28vw;
+    transition: 0.2s;
+}
+
+.AbaAuxiliar_Cadastrar:hover .lista_cadastrar {
+    margin-bottom: 0vh;
+}
+
+.AbaAuxiliar_Cadastrar:hover .label_cadastrar {
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.AbaAuxiliar_Cadastrar:hover .botao_cadastrar {
+    font-size: 20px;
+    width: 10vw;
+    transition: 0.2s;
+}
+
+.AbaAuxiliar_Cadastrar:hover .CADASTRAR {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    text-shadow: 1px 2px 3px rgb(253, 220, 110);
+}
+
+/* CONTEUDO ENTRAR E TELA DE DESCANSO*/
+.conteudo_entrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.4s;
+
+}
+
+
+
+
+.imagem_davi {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/imgs/davi_com_chiclete.png);
+    background-size: cover;
+    border-radius: 26px;
+    width: 35vw;
+    height: 0vw;
+    transition: 0.5s;
+    
+}
+
+
+.Login {
+    font-size: 0px;
+    margin-left: 6vw;
+    margin-top: 70vh;
+    width: 10vw;
+    transition: 0.1s;
+}
+
+
+.Login_link{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 4px 4px rgb(0, 0, 0);
+    width: 0%;
+
+}
+
+
+/* TRANSIÇAO ENTRAR */
+
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal{
+    background-color:rgb(0, 0, 0, 0.3);
+}
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.imagem_davi {
+
+    height: 100vH;
+    transition: 0.5s;
+}
+
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.conteudo_entrar {
+
+    height: 0;
+    transition: 0.5;
+}
+
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.conteudo_entrar>ul>li>input {
+
+    width: 0;
+
+    transition: 0.2s;
+}
+
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.conteudo_entrar>ul>li>label {
+
+    width: 0;
+    font-size: 0;
+    transition: 0.2s;
+
+}
+
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.conteudo_entrar>h2 {
+font-size: 0;
+    width: 0;
+    transition: 0.2s;
+
+
+}
+
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.imagem_davi> .Login > .Login_link {
+font-size: 25px;
+ 
+    transition: 0.5s;
+}
+
+
+
+
+/* ATRIBUTOS CAIXA */
+.lista {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 28vw;
+    height: 60vh;
+
+}
+
+
+
+.atributo {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 10000vw;
+    margin-top: 5vh;
+    width: 26vw;
+    height: 10vh;
+    font-size: 20px;
+    color: white;
+}
+
+
+
+
+
+
+.ENTRAR {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 2px 3px rgb(253, 220, 110);
+
+}
+
+input {
+    all: unset;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(0, 0, 0, 0.0);
+    border-bottom: groove;
+    border-color: rgb(212, 175, 55);
+    border-width: 2px;
+    width: 28vw;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+
+
+}
+
+input::placeholder {
+    color: rgb(163, 163, 163);
+    font-size: 16px;
+}
+
+input:hover {
+    box-shadow: 0px 1px 5px rgb(212, 175, 55);
+    text-shadow: 0px 0px 3px rgb(212, 175, 55);
+}
+
+button {
+    
+    border: none;
+    border-radius: 10%;
+    font-size: 1.5vw;
+    width: 10vw;
+    height: 9vh;
+    margin-left: 9vw;
+    margin-top: 10vh;
+    color: rgb(255, 255, 255);
+    background-image: url(../assets/imgs/marmoreBlackGold.jpg);
+    background-size: cover;
+    box-shadow: 1px 0px 5px rgb(0, 0, 0);
+    text-shadow: 0px 2px 200px rgb(0, 0, 0);
+}
+
+.Botao:hover {
+    text-shadow: 1px 0px 5px rgb(255, 250, 187);
+    box-shadow: 1px 0px 5px rgb(212, 175, 55);
+    cursor: pointer;
+
+}
+
+.botao_cadastrar:hover {
+    cursor: pointer;
+    text-shadow: 1px 0px 5px rgb(255, 250, 187);
+    box-shadow: 1px 0px 5px rgb(212, 175, 55);
+}
+
+.lista_do_botao_cadastrar {
+    width: 5vw;
+}
+
+
+
+li {
+    list-style: none;
+}
+
+
+.mensagem_erro{
+    color: red;
+    margin-left: 6vw;
+}
+
+.mensagem_erro_entrar{
+    color: red;
+    margin-left: 8vw;
+    font-size: 20px;
+}

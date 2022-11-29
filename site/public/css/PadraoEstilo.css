@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Crimson Text';
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+main {
+   
+   
+    height: 100%;
+    margin-top: -6vh;
+    background-image: url(../assets/imgs/marmore_dourado.jpg);
+    background-size: cover;
+    background-color: rgb(255, 248, 233, 0.4);
+   
+}
+
+
+/* FOOTER */
+
+footer {
+    background-image: url(../assets/imgs/marmoreBlackGold.jpg);
+    background-size: cover;
+    background-color: rgb(0, 0, 0, 0.9);
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+font-size: 17px;
+
+}
+
+.lista_footer{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+color: white;
+
+
+
+}
+
+.lista_footer.left{
+    width: 25vw;
+    
+}
+
+.lista_footer.center{
+    width: 40vw;
+    margin-right: 7vw;
+    flex-direction: column;
+  
+    justify-content: space-between;
+    align-items: center;
+ list-style: none;
+    
+}
+.lista_footer.right{
+    width: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.imagem_footer{
+width: 130px;
+
+}
+
+.atributo_footer{
+    list-style: none;
+}
+
+
+.Filipe_footer{
+    font-size: 30px;
+    margin-top: 10vh;
+    animation: led 4s infinite ease-out;;
+
+
+}
+
+@keyframes led {
+80%{text-shadow: 0px 0px 0px rgb(255, 255, 255);}
+50%{text-shadow: 0px 0px 20px rgb(235, 175, 55);}
+
+}
+
+.atributo_footer.redes_sociais{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+margin-top: 1vh;
+font-size: 15px;
+
+}
+
+.imagem_redesSociais{
+    width: 2vw;
+    margin-right: 1vw;
+
+}
+
+.link_redesSociais{
+text-decoration: none;
+color: white;
+display: flex;
+align-items: center;
+ 
+}
+
+/* HEADER */
+
+header {
+    
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-image: url(../assets/imgs/marmoreBlackGold.jpg);
+    background-size: cover;
+   
+
+}
+
+
+
+.div_header.superior {
+    height: 4vh;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    font-size: 2vw;
+    background-color: rgb(0, 0, 0, 0.5);
+    
+    background-size: cover;
+    position:fixed;
+    width: 100vw;
+}
+
+.div_header.inferior {
+    
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7)     ;
+   
+}
+
+.ul_header.superior{
+
+display: flex;
+justify-content:space-between;
+align-items: center;
+width: 100%;
+
+
+}
+
+.ul_header.inferior{
+    margin-top: 5vh;
+    width: 80%;
+    display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 1.5vw;
+}
+
+.imagem_header_superior{
+width: 2vw;
+margin-right: 3vw;
+
+
+}
+
+.li_header{
+list-style: none;
+
+
+}
+
+.li_header.olimpo{
+margin-left: 8.4vw;
+text-shadow: 1px 0px 10px rgb(255, 250, 187);
+}    
+
+.li_header.entrada{
+font-size: 1vw;
+margin-right: 3vw;
+}
+.li_header.inferior{
+   color:black;
+}
+
+
+/* LINKS */
+
+
+
+.a_entrada {
+color: rgb(255, 255, 255);
+text-decoration: none;
+}
+
+
+
+.a_entrada.inferior:hover{
+text-shadow: 1px 0px 5px rgb(255, 250, 187);
+cursor: pointer;
+}
+
+

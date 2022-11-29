@@ -1,0 +1,113 @@
+main{
+
+}
+
+
+
+/* CONTEUDO */
+.container{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+
+}
+
+.container_filho {
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: center;
+    width: 100%;
+ 
+}
+
+.Tema_descricao{
+    width: 50%;
+  height: 40%;
+    margin-right: -5vw;
+    margin-left: 2vw;
+    font-size: 40px;
+    justify-content: center;
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 8vh;
+    border-radius: 10px;
+color: rgb(255, 255, 255);
+text-shadow: 1px 2px 3px rgb(253, 220, 110);
+
+background-color: rgba(0, 0, 0, 0.5);
+text-shadow: 1px 2px 3px rgb(131, 106, 18);
+}
+
+.carrocel{
+
+width: 500px;
+height: 740px;
+
+overflow:hidden;
+margin: 50px auto;
+box-shadow: 0px 0px 15px rgb(212, 175, 55);
+background-color: rgb(0, 0, 0,0.5);
+background-image: url(../assets/imgs/marmoreBlackGold.jpg);
+background-size: cover;
+}
+.carrocel ul{
+    display: flex;
+  
+    list-style: none;
+    width: 1800px;
+    height: 700px;
+}
+
+.carrocel li{
+    position: relative;
+    animation: slide 15s infinite ease-out;
+    align-items: center;
+    margin-left: 2vw;
+ 
+}
+
+.carrocel li h2{
+    color: white;
+    text-shadow: 0px 0px 3px rgb(212, 175, 55);
+}
+
+.carrocel li p{
+    color: white;
+   font-size: 20px;
+}
+
+@keyframes slide {
+    0% {left: 0px}
+    15%{left: 0px; }
+    30%{left: -495px }
+    45%{left: -495px;}
+    60%{left: -977px}
+    70%{left: -977px;}
+    82%{left: -1465px;}
+    93%{left: -1465px;}
+    100%{left: 0px}
+
+}
+
+.img_carrocel_escultura{
+    
+width: 450px ;
+height: 500px;
+    
+}
+
+.carrocel >li >h2{
+    position: absolute;
+}
+
+p{
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+h2{
+margin-left: 5vw;
+
+}

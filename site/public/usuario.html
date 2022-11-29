@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G R E C O</title>
+    <link rel="stylesheet" href="css/PadraoEstilo.css">
+    <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="js/funcoes.js">
+    <script src="../js/funcoes.js"></script>
+    <link rel="stylesheet" href="../src/routes/usuario.js">
+</head>
+
+<body onload="exibirUsuario()">
+
+    <header>
+        <div class="div_header superior">
+            <ul class="ul_header superior">
+                <li class="li_header imagem superior"> <img class="imagem_header_superior" src="imgs/medusa_png.png"
+                        alt=""></li>
+
+                <li class="li_header olimpo superior"> G R E C O </li>
+
+                <li class="li_header entrada superior"> <a class="a_entrada superior" href="index.html">Home</a>|<a
+                        class="a_entrada superior" href="cadastrar.html"> Quiz </a> |<a a class="a_entrada superior"
+                        href="Mais_obras.html"> Mais Obras </a> </li>
+
+
+            </ul>
+        </div>
+        <div class="div_header inferior">
+            <ul class="ul_header inferior">
+                <li class="li_header inferior"><a class="a_entrada inferior" href="index.html">Home</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="usuario.html">Quiz</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="Mais_obras.html">Mais Obras</a></li>
+                <li class="li_header inferior"><a class="a_entrada inferior" href="cadastrar.html">Sua conta</a></li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <div class="container_conteudo">
+            <div class="Metricas">
+                <div class="PontosRanking" id="PontosRanking"></div>
+                <div class="Ranking" id="Ranking">
+                    
+                </div>
+            </div>
+            <div class="container_quiz">
+
+
+                <div class="Titulo_questão" id="titulo"> </div>
+                <ul>
+                    <li class="alternativa"></li>
+                    <li class="alternativa"></li>
+                    <li class="alternativa"></li>
+                    <li class="alternativa"></li>
+                </ul>
+                <div class="RespostaDiv" id="RespostaDiv"></div>
+                <div class="Pontos" id="Pontos"></div>
+
+            </div>
+
+
+        </div>
+
+        <button onclick="cadastrar()">Enviar quiz</button>
+        <div id="teste"></div>
+    </main>
+
+
+
+
+
+    <footer>
+
+        <ul class="lista_footer left">
+            <li class="atributo_footer"><img class="imagem_footer" src="assets/imgs/anjinho_sentado.png" alt=""></li>
+
+        </ul>
+        <ul class="lista_footer center">
+            <li class="Filipe_footer"> FILIPE RICARDO DA SILVA </li>
+            <li class="atributo_footer">© 1998 - 2022 História das Artes. Todos os direitos reservados.</li>
+
+        </ul>
+
+        <ul class="lista_footer right">
+            <li class="atributo_footer"> G R E C O </li>
+            <li class="atributo_footer">www.gregoarte@gmail.com</li>
+        </ul>
+    </footer>
+
+
+</body>
+
+</html>
+
+<script>
+
+
+function exibirUsuario() {
+        //aguardar();
+        var nomeVar = sessionStorage.NOME_USUARIO;
+        PontosRanking.innerHTML = `Sua Média de Pontos ${nomeVar}`
+        var idUsuarioVar = sessionStorage.ID_USUARIO;
+        fetch("/usuarios/autenticarId", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuarioServer: idUsuarioVar,
+
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    
+                    sessionStorage.METRICA_USUARIO = json.metrica;
+                    Ranking.innerHTML = `Média: ${sessionStorage.METRICA_USUARIO}`;
+
+                  
+                });
+
+            } else {
+
+                console.log("Houve um erro");
+               
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+
+</script>
+
+<script>
+
+// CADASTRO JS 
+function cadastrar() {
+
+    var totalVar = Number(Pontos.innerHTML);
+    var fkUsuarioVar = sessionStorage.ID_USUARIO;
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrarPontos", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            totalServer: totalVar,
+            fkUsuarioSever: fkUsuarioVar
+          
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            setTimeout(() => {
+                location.reload()
+            }, "1000")
+
+            limparFormulario();
+
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+
+    });
+
+    return true;
+}
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+
+</script>
+
+
+
+
+<!-- QUIZ -->
+
+<script>
+
+    var perguntas = [
+
+
+        {
+            titulo: 'Gato ?',
+            alternativas: ['gat', 'Brandao', 'lat', 'dog'],
+            correta: 1
+        },
+        {
+            titulo: 'David ?',
+            alternativas: ['Michelangelo', 'pat', 'lat', 'Brandao'],
+            correta: 3
+        },
+        {
+            titulo: 'Luiz ?',
+            alternativas: ['gat', 'pat', 'Brandao', 'dog'],
+            correta: 2
+        },
+        {
+            titulo: 'Mamaco ?',
+            alternativas: ['Brandao', 'pat', 'lat', 'dog'],
+            correta: 0
+        },
+        {
+            titulo: 'Cabele ?',
+            alternativas: ['Brandao', 'pat', 'lat', 'dog'],
+            correta: 0
+        },
+
+        {
+            titulo: 'Fim',
+            alternativas: [],
+            correta: 8
+        }
+
+    ]
+    var Aplicativo = {
+
+        iniciar: function () {
+
+            this.Atualpos = 0;
+            this.Totalpontos = 0;
+
+
+            var resposta = document.querySelectorAll('.alternativa');
+            resposta.forEach((element, index) => {
+
+                element.addEventListener('click', () => {
+                    this.checarResposta(index);
+                })
+            })
+            this.atualizaPontos();
+            Aplicativo.mostrarQuestao(perguntas[this.Atualpos]);
+        },
+
+        mostrarQuestao: function (exibir) {
+            this.questaoAtual = exibir
+            var tituloDiv = document.getElementById('titulo')
+            tituloDiv.textContent = exibir.titulo;
+
+            var resposta = document.querySelectorAll('.alternativa');
+            resposta.forEach(function (element, index) {
+                element.textContent = exibir.alternativas[index];
+
+            })
+
+        },
+
+        ProximaPergunta: function () {
+            this.Atualpos++;
+            if (this.Atualpos == perguntas.length) {
+                this.Atualpos = 0;
+
+            }
+        },
+
+        checarResposta: function (user) {
+            if (this.questaoAtual.correta == user) {
+                console.log('Correta')
+                this.Totalpontos++;
+                this.mostrarResposta();
+
+            } else {
+                console.log('errada')
+                this.mostrarResposta();
+            }
+            this.atualizaPontos()
+            this.ProximaPergunta();
+            this.mostrarQuestao(perguntas[this.Atualpos])
+
+
+        },
+
+        atualizaPontos: function () {
+            var scoreDiv = document.getElementById('Pontos')
+            scoreDiv.textContent = `${this.Totalpontos}`
+
+
+        },
+        mostrarResposta: function (correto) {
+            var resultDiv = document.getElementById('RespostaDiv');
+            var RespostaDiv = ''
+            if (correto == true) {
+                RespostaDiv = `Resposta Correta`;
+
+            } else {
+                var pergunta = perguntas[this.Atualpos];
+                var corretaIndice = pergunta.correta
+                var ctexto = pergunta.alternativas[corretaIndice]
+                RespostaDiv = ` Resposta Correta ${ctexto}`
+
+            }
+
+            resultDiv.textContent = RespostaDiv
+
+
+        }
+    }
+    Aplicativo.iniciar()
+
+
+    
+    // function quiz () {
+    //     const perguntas = [{
+    //         titulo: 'Gato ?',
+    //         alternativas: ['gat', 'Brandao', 'lat', 'dog'],
+    //         correta: 1
+    //     },
+    //     {
+    //         titulo: 'David ?',
+    //         alternativas: ['Michelangelo', 'pat', 'lat', 'Brandao'],
+    //         correta: 3
+    //     },
+    //     {
+    //         titulo: 'Luiz ?',
+    //         alternativas: ['gat', 'pat', 'Brandao', 'dog'],
+    //         correta: 2
+    //     },
+    //     {
+    //         titulo: 'Mamaco ?',
+    //         alternativas: ['Brandao', 'pat', 'lat', 'dog'],
+    //         correta: 0
+    //     },
+    //     {
+    //         titulo: 'Cabele ?',
+    //         alternativas: ['Brandao', 'pat', 'lat', 'dog'],
+    //         correta: 0
+    //     },
+
+    //     {
+    //         titulo: 'Fim',
+    //         alternativas: ['Quiz', 'Finalizado', 'Recomeçar', 'Agora'],
+    //         correta: 8
+    //     }]
+    // }
+
+
+
+
+
+</script>
