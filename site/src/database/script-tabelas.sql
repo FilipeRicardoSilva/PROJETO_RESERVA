@@ -29,6 +29,38 @@ FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 
 select*from quiz;
 
+
+CREATE TABLE 'site'(
+idSite INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+conteudo VARCHAR(45),
+fkQuiz INT,
+FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,

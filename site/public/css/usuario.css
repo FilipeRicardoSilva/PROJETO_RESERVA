@@ -88,7 +88,7 @@ width: 45px;
 .titulo_pagina{
 font-size: 60px;
 margin-top: -25vh;
-margin-bottom: 19vh;
+
 
 }
 
@@ -309,10 +309,10 @@ position: relative;
 }
 
 @keyframes aparicao {
-    0%{margin-top:0vh}
-    10%{margin-top:0vh}
-    30%{margin-top: -87vh}
-    55%{margin-top: -87vh}
-    60%{margin-top: 0;}
-   100%{margin-top:-0vh}
+    0%{margin-top:-20vh}
+    10%{margin-top:-20vh}
+    30%{margin-top: -100vh}
+    55%{margin-top: -100vh}
+    60%{margin-top: -20vh;}
+   100%{margin-top:-20vh}
 }
