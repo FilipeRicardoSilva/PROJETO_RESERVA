@@ -31,7 +31,6 @@
         <div class="div_header inferior">
             <ul class="ul_header inferior">
                 <li class="li_header inferior"><a class="a_entrada inferior" href="index.html">Home</a></li>
-                <li class="li_header inferior"><a class="a_entrada inferior" href="usuario.html">Quiz</a></li>
                 <li class="li_header inferior"><a class="a_entrada inferior" href="Mais_obras.html">Mais Obras</a></li>
                 <li class="li_header inferior"><a class="a_entrada inferior" href="cadastrar.html">Sua conta</a></li>
 
@@ -61,16 +60,16 @@
                         </li>
                         <li class="atributo_cadastrar senha"><label class="label_cadastrar senha"
                                 for="senha_input">Senha</label>
-                            <input class="input_cadastrar" type="password" placeholder="*****" id="senha_input"> <input
-                                class="input_revelar_senha" type="checkbox" onclick="revelarSenha()">
+                            <input class="input_cadastrar" type="password" placeholder="*****" id="senha_input">
                         </li>
                         <li class="atributo_cadastrar senha"><label class="label_cadastrar confirmar_senha"
                                 for="confirmacao_senha_input">Confirmar Senha</label>
                             <input class="input_cadastrar" type="password" placeholder="*****"
-                                id="confirmacao_senha_input"> <input class="input_revelar_senha" type="checkbox"
-                                onclick="revelarConfirmarSenha()" id="input_revelar_senha">
+                                id="confirmacao_senha_input">
+                            <span class="revelar_senha_span"> revelar senha<input type="checkbox"
+                                    onclick="revelarSenha()" class="revelar_senha"> </span>
                         </li>
-                       
+
 
                         <button class="botao_cadastrar" onclick="cadastrar()">Cadastrar</button>
 
@@ -101,11 +100,13 @@
                         </li>
                         <li class="atributo entrar"><label class="label_senha" for="InputSenha">Senha</label>
                             <input class="input_login" type="password" placeholder="*****" id="InputSenha_entrar">
+                            <span class="revelar_senha_span_entrar"> revelar senha<input type="checkbox"
+                                    onclick="revelarSenha()" class="revelar_senha"> </span>
                         </li>
                         <button class="Botao botao_entrar" onclick="entrar()">Entrar</button>
 
-                        <div class="cardErro" id="cardErro_entrar"></div>
-                        <div id="mensagem_erro_entrar" class="mensagem_erro_entrar"></div>
+                        <div class="cardErro" id="cardErro"></div>
+                        <div id="mensagem_erro" class="mensagem_erro"></div>
                     </ul>
                 </div>
                 <div class="imagem_davi">
@@ -125,22 +126,22 @@
 
 
     <footer>
-      
-        <ul class="lista_footer left"> 
-        <li class="atributo_footer"><img class="imagem_footer" src="assets/imgs/anjinho_sentado.png" alt=""></li>
-        
+
+        <ul class="lista_footer left">
+            <li class="atributo_footer"><img class="imagem_footer" src="assets/imgs/anjinho_sentado.png" alt=""></li>
+
         </ul>
-                <ul class="lista_footer center">
-                    <li class="Filipe_footer"> FILIPE RICARDO DA SILVA </li>
-                    <li class="atributo_footer">© 1998 - 2022 História das Artes. Todos os direitos reservados.</li>
-        
-                </ul>
-        
-                <ul class="lista_footer right">
-                    <li class="atributo_footer"> G R E C O </li>
-                    <li class="atributo_footer">www.gregoarte@gmail.com</li>
-                </ul>
-            </footer>
+        <ul class="lista_footer center">
+            <li class="Filipe_footer"> FILIPE RICARDO DA SILVA </li>
+            <li class="atributo_footer">© 2001 - 2022 História das Artes. Todos os direitos reservados.</li>
+
+        </ul>
+
+        <ul class="lista_footer right">
+            <li class="atributo_footer"> G R E C O </li>
+            <li class="atributo_footer">www.gregoarte@gmail.com</li>
+        </ul>
+    </footer>
 
 </body>
 
@@ -149,19 +150,23 @@
 <script>
     function revelarSenha() {
 
-        if (InputSenha_cadastrar.type == 'text') {
-            InputSenha_cadastrar.type = 'password'
+        if (InputSenha_entrar.type == 'text') {
+            InputSenha_entrar.type = 'password'
         } else {
-            InputSenha_cadastrar.type = 'text'
+            InputSenha_entrar.type = 'text'
         }
 
-    }
+        if (senha_input.type == 'text') {
+            senha_input.type == 'password'
+        }
+        else {
+            senha_input.type == 'text'
+        }
 
-    function revelarConfirmarSenha() {
-        if (InputConfirmarSenha.type == 'text') {
-            InputConfirmarSenha.type = 'password'
+        if (confirmacao_senha_input.type == 'text') {
+            confirmacao_senha_input.type = 'password'
         } else {
-            InputConfirmarSenha.type = 'text'
+            confirmacao_senha_input.type = 'text'
         }
 
     }
@@ -195,14 +200,14 @@
 
             return false;
 
-        } 
+        }
         else if (senha.length != 8) {
             alerta.innerHTML = `
              <p style="color: red;">
              ${frase_alerta}
              </p>
          `
-         mensagem_erro.innerHTML = "";
+            mensagem_erro.innerHTML = "";
 
             return false;
         } else if (senha != conf_senha) {
@@ -218,7 +223,7 @@
             alerta.innerHTML = `   <p style="color: red;">
              ${frase_senha}
              </p>`;
-             mensagem_erro.innerHTML = "";
+            mensagem_erro.innerHTML = "";
             return false;
         }
 

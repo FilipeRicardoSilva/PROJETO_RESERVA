@@ -30,7 +30,7 @@ footer{
     position: absolute;
     background-color: rgb(0, 0, 0, 0.5);
     animation: russa 2s infinite ease-in-out;
-   box-shadow: 0px -10px   30px rgb(212, 175, 55) ;
+   box-shadow: 0px -15px   30px rgb(212, 175, 55) ;
 
 
 
@@ -38,10 +38,10 @@ footer{
 
 
 @keyframes russa{
-25%{box-shadow: 10px 0px    30px rgb(212, 175, 55) }
-50%{box-shadow: 0px   10px  30px rgb(212, 175, 55)}
-75%{box-shadow: -10px 0px   30px rgb(212, 175, 55)}
-100%{box-shadow: 0px -10px  30px rgb(212, 175, 55) }
+25%{box-shadow: 15px 0px    30px rgb(212, 175, 55) }
+50%{box-shadow: 0px   15px  30px rgb(212, 175, 55)}
+75%{box-shadow: -15px 0px   30px rgb(212, 175, 55)}
+100%{box-shadow: 0px -15px  30px rgb(212, 175, 55) }
 
 
 }
@@ -173,6 +173,10 @@ footer{
     background-color: rgb(0, 0, 0, 0.7);
 }
 
+.AbaAuxiliar_Cadastrar:hover .revelar_senha_span{
+opacity: 80%;
+}
+
 .AbaAuxiliar_Cadastrar:hover .conteudo_cadastrar {
     height: 73vh;
     font-size: 20px;
@@ -290,6 +294,11 @@ footer{
     transition: 0.2s;
 }
 
+.AbaAuxiliar_Cadastrar:hover+.entrar_principal>.conteudo_entrar>ul>li>.revelar_senha_span_entrar{
+opacity: 0%;
+
+}
+
 .AbaAuxiliar_Cadastrar:hover+.entrar_principal>.conteudo_entrar>ul>li>label {
 
     width: 0;
@@ -353,7 +362,7 @@ font-size: 25px;
 }
 
 input {
-    all: unset;
+    
     border: none;
     border-radius: 6px;
     background-color: rgb(0, 0, 0, 0.0);
@@ -426,4 +435,32 @@ li {
     color: red;
     margin-left: 8vw;
     font-size: 20px;
+}
+
+.revelar_senha{
+width: 15px;
+height: 15px;
+margin-top: 4px;
+margin-left: 5px;
+
+}
+
+.revelar_senha_span{
+    display:flex;
+    flex-direction:row;
+     font-size: 15px; 
+     margin-top: 15px; 
+     align-items: center; 
+     opacity: 0%;
+     color: white;
+}
+
+.revelar_senha_span_entrar{
+    display:flex;
+    flex-direction:row;
+     font-size: 15px; 
+     margin-top: 15px; 
+     align-items: center; 
+     opacity: 80%;
+     color: white;
 }

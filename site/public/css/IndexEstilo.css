@@ -29,7 +29,7 @@ margin-top: 10vh;
 font-size: 30px;
 font-family:'Crimson';
 width:70vw;
-height: 75vh;
+height:70%;
 box-shadow: 0px 0px 20px rgb(212, 175, 55);
 background-color: rgba(0, 0, 0, 0.3);
 background-image:url(../assets/imgs/marmoreBlackGold.jpg) ;
@@ -38,10 +38,13 @@ text-shadow: 1px 2px 3px rgb(131, 106, 18);
 color: white;
 border-radius: 10%;
 position: absolute;
+overflow:scroll;
 text-align: justify;
-
-
 }
+.texto_arte_grega::-webkit-scrollbar{
+width: 15px;
+}
+
 .texto_arte_grega >h2{
     color: white;
 }
@@ -79,9 +82,9 @@ width: 100%;
 
 .caixa{
 box-shadow: -15px 15px 10px rgba(0, 0, 0, 0.7);
-background-color: rgb(212, 175, 55);
+background-color: rgb(173, 133, 0);
 color: rgb(0, 0, 0);
-
+overflow: hidden;
 width: 20vw ;
 height: 30vh ;
 border-radius: 10px;
@@ -108,7 +111,7 @@ flex-direction: column;
 font-size: 20px;
 height: 40vh;
 margin-top: 5vh;
-
+overflow: hidden;
 margin-bottom: 5vh;
 border-radius: 10px;
 color: rgb(255, 255, 255);
@@ -128,9 +131,10 @@ text-shadow: 1px 2px 3px rgb(131, 106, 18);
 /* VIDEO*/
 .video_index{
    
-    width: 9vw;
-    height: 20vh;
-   margin-top: 65vh;
+    width: 1vw;
+    height: 65.3vh;
+    margin-top: 12.2vh;
+   margin-left: -33vw;
    position: absolute;
 
 background-color: black;

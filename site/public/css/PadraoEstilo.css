@@ -38,6 +38,9 @@ footer {
     flex-direction: row;
     justify-content: space-between;
 font-size: 17px;
+margin-bottom: 0vh;
+overflow: hidden;
+height: 30%;
 
 }
 
@@ -141,7 +144,7 @@ header {
 
 
 .div_header.superior {
-    height: 4vh;
+    height: 5vh;
     text-align: center;
     display: flex;
     flex-direction: row;

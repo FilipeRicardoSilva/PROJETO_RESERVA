@@ -33,7 +33,7 @@
         <div class="div_header inferior">
             <ul class="ul_header inferior">
                 <li class="li_header inferior"><a class="a_entrada inferior" href="index.html">Home</a></li>
-                <li class="li_header inferior"><a class="a_entrada inferior" href="usuario.html">Quiz</a></li>
+                
                 <li class="li_header inferior"><a class="a_entrada inferior" href="Mais_obras.html">Mais Obras</a></li>
                 <li class="li_header inferior"><a class="a_entrada inferior" href="cadastrar.html">Sua conta</a></li>
 
@@ -45,35 +45,43 @@
 
 
     <main>
-
+        <img class="anjinho" src="assets/imgs/anjinho_estatua.png" alt="">
         <div class="container_conteudo">
-            <div class="Metricas">
-                <div class="PontosRanking" id="PontosRanking"></div>
-                <div class="Ranking" id="Ranking">
-                    
-                </div>
-            </div>
-            <div class="container_quiz">
+            <h1 class="titulo_pagina">GRECO QUIZ</h1>
+            
+            <div class="container_quiz" id="mamaco">
 
 
-                <div class="Titulo_questão" id="titulo"> </div>
-                <ul>
+                <div class="Titulo_questão" id="titulo" style="height: 10vh;"> </div>
+                <ul class="ul_quiz">
                     <li class="alternativa"></li>
                     <li class="alternativa"></li>
                     <li class="alternativa"></li>
                     <li class="alternativa"></li>
                 </ul>
+              
                 <div class="RespostaDiv" id="RespostaDiv"></div>
-                <div class="Pontos" id="Pontos"></div>
+                <div class="caixa_Pontos" s>Pontos: <div class="Pontos" id="Pontos"></div>
+                </div>
+              
 
+            </div>
+
+            <div class="Metricas">
+                <div class="PontosRanking" id="PontosRanking"></div>
+                <div class="Ranking" id="Ranking">
+
+                </div>
             </div>
 
 
         </div>
 
-        <button onclick="cadastrar()">Enviar quiz</button>
-        <div id="teste"></div>
+        <!-- <button onclick="cadastrar()">Enviar quiz</button> -->
+
     </main>
+
+    
 
 
 
@@ -105,7 +113,7 @@
 <script>
 
 
-function exibirUsuario() {
+    function exibirUsuario() {
         //aguardar();
         var nomeVar = sessionStorage.NOME_USUARIO;
         PontosRanking.innerHTML = `Sua Média de Pontos ${nomeVar}`
@@ -129,17 +137,17 @@ function exibirUsuario() {
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    
+
                     sessionStorage.METRICA_USUARIO = json.metrica;
                     Ranking.innerHTML = `Média: ${sessionStorage.METRICA_USUARIO}`;
 
-                  
+
                 });
 
             } else {
 
                 console.log("Houve um erro");
-               
+
                 resposta.text().then(texto => {
                     console.error(texto);
                     // finalizarAguardar(texto);
@@ -159,48 +167,48 @@ function exibirUsuario() {
 
 <script>
 
-// CADASTRO JS 
-function cadastrar() {
+    // CADASTRO JS 
+    function cadastrar() {
 
-    var totalVar = Number(Pontos.innerHTML);
-    var fkUsuarioVar = sessionStorage.ID_USUARIO;
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrarPontos", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            totalServer: totalVar,
-            fkUsuarioSever: fkUsuarioVar
-          
-        })
-    }).then(function (resposta) {
+        var totalVar = Number(Pontos.innerHTML);
+        var fkUsuarioVar = sessionStorage.ID_USUARIO;
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarPontos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                totalServer: totalVar,
+                fkUsuarioSever: fkUsuarioVar
 
-        console.log("resposta: ", resposta);
+            })
+        }).then(function (resposta) {
 
-        if (resposta.ok) {
-            setTimeout(() => {
-                location.reload()
-            }, "1000")
+            console.log("resposta: ", resposta);
 
-            limparFormulario();
+            if (resposta.ok) {
+                setTimeout(() => {
+                    location.reload()
+                }, "1000")
 
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+                limparFormulario();
 
-    });
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
 
-    return true;
-}
-function sumirMensagem() {
-    cardErro.style.display = "none"
-}
+        });
+
+        return true;
+    }
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 
 </script>
 
@@ -215,28 +223,28 @@ function sumirMensagem() {
 
 
         {
-            titulo: 'Gato ?',
-            alternativas: ['gat', 'Brandao', 'lat', 'dog'],
+            titulo: 'A escultura "DAVID" foi feita pelo?',
+            alternativas: ['Brandão', 'Michelangelo.', 'Paul Gauguin', 'Pablo Picasso.'],
             correta: 1
         },
         {
-            titulo: 'David ?',
-            alternativas: ['Michelangelo', 'pat', 'lat', 'Brandao'],
+            titulo: 'Qual o Princípio da Arte Grega?',
+            alternativas: ['A arte não tem princípio, meio ou fim', 'A beleza esta na incoerência', 'O caos é o caminho para a verdade', 'A beleza esta na proporção e na simetria'],
             correta: 3
         },
         {
-            titulo: 'Luiz ?',
-            alternativas: ['gat', 'pat', 'Brandao', 'dog'],
+            titulo: 'Quando foi criada a escultura "O pensador"?',
+            alternativas: ['1558', '1800', '1902', '2001'],
             correta: 2
         },
         {
-            titulo: 'Mamaco ?',
-            alternativas: ['Brandao', 'pat', 'lat', 'dog'],
+            titulo: 'Qual foi a maior especialização em arte dos gregos?',
+            alternativas: ['Esculturas', 'Quadros', 'Cerâmica', 'Dança'],
             correta: 0
         },
         {
-            titulo: 'Cabele ?',
-            alternativas: ['Brandao', 'pat', 'lat', 'dog'],
+            titulo: 'Qual a obra Grega mais famosa do mundo ?',
+            alternativas: ['Vênus de Milo', 'David', 'O pensador', 'Pieda'],
             correta: 0
         },
 
@@ -285,6 +293,17 @@ function sumirMensagem() {
                 this.Atualpos = 0;
 
             }
+            if (this.Atualpos == 5) {
+                mamaco.innerHTML = `   
+                <div class="Titulo_questão" id="titulo"> </div>
+                
+                <div class="Final_Quiz">
+     <h2>Você Terminou o Quiz!!<br> 
+    Sua Pontuação nesta Rodada Foi ${Pontos.innerHTML}/5 <br>
+    Envie e veja sua Média de Pontos</h2>
+        <button onclick="cadastrar()">Enviar quiz</button> 
+    </div>`
+            }
         },
 
         checarResposta: function (user) {
@@ -332,7 +351,7 @@ function sumirMensagem() {
     Aplicativo.iniciar()
 
 
-    
+
     // function quiz () {
     //     const perguntas = [{
     //         titulo: 'Gato ?',

@@ -85,7 +85,12 @@ width: 45px;
 
 
     
+.titulo_pagina{
+font-size: 60px;
+margin-top: -25vh;
+margin-bottom: 19vh;
 
+}
 
 h2{
     color: white;
@@ -103,15 +108,18 @@ li{
 
     width: 100%;
     height: 100%;
-    background-image: url(../assets/imgs/estatuas_irmas.png);
+    position:absolute;
     background-size: cover;
     align-items: center;
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
     margin-bottom: -30vh;
+   
 
 }
+
+
 
 /* QUIZ */
 
@@ -120,17 +128,34 @@ li{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
+    
     border-radius: 10px;
     background-color: rgb(0, 0, 0, 0.4);
+    box-shadow: 2px 5px 10px black;
+    background-image: url(../assets/imgs/textura_marmore.webp);
     padding: 20px;
-    margin-bottom: -200vh;
+    width: 40%;
+    height: 50%;
+ 
+}
+
+
+.ul_quiz{
+
+width: 80%;
+height: 70%;
+margin-bottom: 5vh;
 }
 
 .Titulo_questão{
 align-items: center;
-width: 25vw;
-background-color: rgb(0, 0, 0, 0.4);
+width: 80%;
+height: 10%;
+background-color: rgb(0, 0, 0, 0.7);
 text-align: center;
+display: flex;
+justify-content: center;
 color: white;
 text-shadow: 0px 0px 5px rgb(235, 175, 55);
 font-size: 25px;
@@ -139,46 +164,155 @@ font-size: 25px;
 .alternativa{
 background-color:rgb(0, 0, 0, 0.4);
 color: white;
-width: 20vw;
+width: 100%;
+height: 25%;
 margin-top: 1vh;
+
 align-items: center;
 text-align: center;
+justify-content: center;
+display: flex;
 border-radius: 5px;
+font-size: 30px;
 }
 
 .alternativa:hover{
    
-    opacity: 100%;
+    opacity: 90%;
     box-shadow: 0px 0px 5px rgb(235, 175, 55);
+    padding: 2px;
 }
 
+
+
+
+
+.RespostaDiv{
+    color: rgb(61, 243, 24);
+    font-size: 20px;
+    text-shadow: 0px 0px 5px  white;
+}
+
+
+.caixa_Pontos{
+display: flex;
+flex-direction: row;
+
+font-size: 23px;
+margin-bottom: -3vh;
+    color: rgb(0, 0, 0);
+}
 
 .Pontos{
-
-    color: white;
-    text-shadow: 0px 0px 2px black;
+margin-left: 1vw;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 3px rgb(255, 255, 255);
+    font-size: 25px;
+    animation: led 4s infinite ease-out;;
 }
 
 
-/* RANKING */
+.Final_Quiz{
+
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.Final_Quiz > h2{
+    width: 100%;
+    border-radius: 10px;
+    height: 60%;
+    overflow: hidden;
+  color: white;
+  margin-top: 3vh;
+ 
+  text-shadow: 0px 2px 5px rgb(212, 175, 55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 25px;
+}
+
+button {
+    
+    border: none;
+    border-radius: 10%;
+    font-size: 1.5vw;
+    width: 10vw;
+    height: 9vh;
+    
+    color: rgb(255, 255, 255);
+    background-image: url(../assets/imgs/marmoreBlackGold.jpg);
+    background-size: cover;
+    box-shadow: 1px 0px 5px rgb(0, 0, 0);
+    text-shadow: 0px 2px 200px rgb(0, 0, 0);
+}
+
+button:hover {
+    text-shadow: 1px 0px 5px rgb(255, 250, 187);
+    box-shadow: 1px 0px 5px rgb(212, 175, 55);
+    cursor: pointer;
+
+}
+
+
+/* MEDIA */
 
 .Metricas{
-background-color:rgb(0, 0, 0, 0.4);
 
-width: 80%;
-border-radius: 5px;
-margin-bottom: 10vh;
-margin-top: -8vh;
+display: flex;
+margin-top: 4vh;
+height: 20%;
+width: 43%;
+border-radius: 10px;
+box-shadow: 2px 5px 10px black;
+
 
 }
 
 .PontosRanking{
-    background-color:rgb(0, 0, 0, 0.5);
-    width: 20vw;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    background-color:rgb(0, 0, 0, 0.7);
+    width: 20%;
+    height: 100%;
+    border-radius: 2px;
     color: white;
-    font-size: 15px;
-text-shadow:0px 0px 5px rgb(235, 175, 55); ;
+    font-size: 18px;
+    text-shadow:0px 0px 5px rgb(235, 175, 55); ;
+    
 }
 
 .Ranking{
+    background-color:rgb(0, 0, 0, 0.4);
+    background-image: url(../assets/imgs/textura_marmore.webp);
+    width: 80%;
+    border-radius: 5px;
+}  
+
+
+/* ANIMAÇÃO DE FUNDO DO SITE */
+
+.anjinho{
+width: 250px;
+animation:aparicao 20s infinite ease-in-out ;
+position: relative;
+
+}
+
+@keyframes aparicao {
+    0%{margin-top:0vh}
+    10%{margin-top:0vh}
+    30%{margin-top: -87vh}
+    55%{margin-top: -87vh}
+    60%{margin-top: 0;}
+   100%{margin-top:-0vh}
 }
